@@ -149,6 +149,19 @@ const LogInComponent = {
   },
 
   handleRegistration: async () => {
+    const email = document.querySelector('.email').value;
+    const password = document.querySelector('.password').value;
+    const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!email.match(mailformat)) {
+      alert('Write correct Email!!!');
+      return;
+    }
+
+    if (!email || !password) {
+      alert('Email and password must be filled out!!!');
+      return;
+    }
+    
     const registrationInfo = {
       mail: document.querySelector('.email').value,
       password: document.querySelector('.password').value,
