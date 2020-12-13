@@ -292,9 +292,9 @@ const BookComponent = {
     roomType.innerText = `Type: ${event.target.dataset.type}`;
     const img = document.querySelector('.booking-info-img');
     if (event.target.dataset.type === 'family') {
-      img.setAttribute('src', './Images/Family room/family1.png');
+      img.setAttribute('src', './client/Images/Family room/family1.png');
     } else {
-      img.setAttribute('src', './Images/Private room/bedroom2.png');
+      img.setAttribute('src', './client/Images/Private room/bedroom2.png');
     }
     const roomCapacity = document.querySelector('.room-capacity-text');
     roomCapacity.innerText = `Capacity: ${event.target.dataset.capacity}`;
