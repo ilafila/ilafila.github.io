@@ -175,7 +175,7 @@ const LogInComponent = {
       body: JSON.stringify(registrationInfo)
     }).then((resp) => {
       if (!resp.ok) {
-        throw new Error("HTTP status " + response.status);
+        throw new Error("HTTP status " + resp.status);
     }
     });
 
