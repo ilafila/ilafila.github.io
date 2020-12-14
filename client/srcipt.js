@@ -365,12 +365,12 @@ const BookComponent = {
     console.log(!timeIn);
     console.log(!timeOut);
 
-    if (departureTime === '' && returnTime === '') {
+    if (!departureTime || !returnTime) {
       alert('Please, filled out all fields!!!');
       return;
     }
 
-    if(!timeIn && !timeOut){
+    if(!timeIn || !timeOut){
       alert('Please, filled out all fields!!!');
       return;
     }
