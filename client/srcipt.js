@@ -161,12 +161,12 @@ const LogInComponent = {
       alert('Email and password must be filled out!!!');
       return;
     }
-    
+
     const registrationInfo = {
       mail: document.querySelector('.email').value,
       password: document.querySelector('.password').value,
     };
-    
+
 
     const response = await fetch('https://hostel-reservation.herokuapp.com/register', {
       method: 'POST',
@@ -358,11 +358,6 @@ const BookComponent = {
     const modal = document.querySelector('.modal');
     modal.classList.add('hide');
     const type = document.querySelector('.room-type').value;
-    if (type != 'private' && type != 'family') {
-      alert('In field type write private, if you want private room, else write family!!!');
-      return;
-    }
-
     const departureTime = document.querySelector('.departure').value;
     const returnTime = document.querySelector('.return').value;
     const timeIn = document.querySelector('.timeIn').value;
@@ -370,23 +365,24 @@ const BookComponent = {
     console.log(timeIn);
     console.log(timeOut);
 
-    if (departureTime == '' || returnTime == '' || timeIn == '' || timeOut == '') {
+    if (departureTime == '' && returnTime == '' && timeIn == '' && timeOut == '') {
       alert('Please, filled out all fields!!!');
+      return;
+    }
+
+    if (type != 'private' && type != 'family') {
+      alert('In field type write private, if you want private room, else write family!!!');
       return;
     }
 
     const departureTimeArray = departureTime.split('-');
     const returnTimeArray = returnTime.split('-');
-    console.log(departureTimeArray);
-    console.log(returnTimeArray);
     for (let i = 0; i < departureTimeArray.length; i++) {
       if (+departureTimeArray[i] > +returnTimeArray[i]) {
         if (+departureTimeArray[0] < +returnTimeArray[0]) {
           break;
         } else {
           alert('You cannot come back before arrival! Please choose the correct departure and return date');
-          console.log(+departureTimeArray[i]);
-          console.log(+returnTimeArray[i]);
           return;
         }
       }
