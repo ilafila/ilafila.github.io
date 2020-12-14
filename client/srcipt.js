@@ -400,11 +400,6 @@ const BookComponent = {
       }
     }
 
-
-
-
-
-
     const roomInfo = {
       timeIn: document.querySelector('.departure').value + ` ${document.querySelector('.timeIn').value}`,
       timeOut: document.querySelector('.return').value + ` ${document.querySelector('.timeOut').value}`,
@@ -477,29 +472,3 @@ const ErrorComponent = {
     `;
   }
 }
-
-// const routes = [
-//   { path: '/', component: HomeComponent, },
-//   { path: '/login', component: LogInComponent, },
-//   { path: '/book', component: ErrorComponent, }
-// ];
-
-// function parseLocation() {
-//   return location.hash.slice(1).toLowerCase() || '/';
-// }
-
-// function findComponentByPath(path, routes) {
-//   return routes.find(r => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
-// }
-
-// const router = () => {
-//   // Find the component based on the current path
-//   const path = parseLocation();
-//   // If there's no matching route, get the "Error" component
-//   const { component = ErrorComponent } = findComponentByPath(path, routes) || {};
-//   // Render the component in the "app" placeholder
-//   document.getElementById('app').innerHTML = component.render();
-// };
-
-// window.addEventListener('hashchange', signOut);
-// document.addEventListener("DOMContentLoaded", signOut);
