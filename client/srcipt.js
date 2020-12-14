@@ -173,7 +173,11 @@ const LogInComponent = {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(registrationInfo)
-    }).catch((err) => alert(err.status));
+    }).then((resp) => {
+      if (!resp.ok) {
+        throw new Error("HTTP status " + response.status);
+    }
+    });
 
     if (response.ok) {
       alert('You are successfully registered!');
