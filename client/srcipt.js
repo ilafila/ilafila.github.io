@@ -178,7 +178,7 @@ const LogInComponent = {
     if (response.ok) {
       alert('You are successfully registered!');
     } else {
-      alert("You are already registered!!!");
+      reject(alert("You are already registered!!!"));
     }
   },
 
