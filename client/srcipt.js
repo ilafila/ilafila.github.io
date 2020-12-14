@@ -370,7 +370,12 @@ const BookComponent = {
       return;
     }
 
-    if(!timeIn || !timeOut){
+    if(!timeIn){
+      alert('Please, filled out all fields!!!');
+      return;
+    }
+
+    if(!timeOut) {
       alert('Please, filled out all fields!!!');
       return;
     }
