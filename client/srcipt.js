@@ -167,19 +167,23 @@ const LogInComponent = {
       password: document.querySelector('.password').value,
     };
 
-    const response = await fetch('https://hostel-reservation.herokuapp.com/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(registrationInfo)
-    });
+    try {
+      const response = await fetch('https://hostel-reservation.herokuapp.com/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registrationInfo)
+      });
 
-    if (response.ok) {
-      alert('You are successfully registered!');
-    } else {
-      Promise.reject(alert("You are already registered!!!"));
+      if (response.ok) {
+        alert('You are successfully registered!');
+      }
+
+    } catch(err) {
+      alert("You are already registered!!!" + err);
     }
+
   },
 
 }
