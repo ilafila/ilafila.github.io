@@ -367,6 +367,7 @@ const BookComponent = {
     const returnTime = document.querySelector('.return').value;
     const timeIn = document.querySelector('.timeIn').value;
     const timeOut = document.querySelector('.timeOut').value;
+    console.log(timeIn);
 
     if (departureTime == '' || returnTime == '' || timeIn == '' || timeOut == '') {
       alert('Please, filled out all fields!!!');
