@@ -371,7 +371,7 @@ const BookComponent = {
         if (+departureTimeArray[0] < +returnTimeArray[0]) {
           break;
         } else {
-          alert('You cannot come back before arrival! Please choose the correct departure and return date');
+          alert('You cannot come back before arrival! Please choose the correct departure and return date!!!');
           return;
         }
       }
@@ -381,7 +381,7 @@ const BookComponent = {
       const timeOutArray = timeOut.split(':');
       for (let i = 0; i < timeInArray.length; i++) {
         if (timeInArray[i] > timeOutArray[i]) {
-          alert('You cannot come back before arrival! Please choose the correct departure and return time');
+          alert('You cannot come back before arrival! Please choose the correct departure and return time!!!');
           return;
         }
       }
