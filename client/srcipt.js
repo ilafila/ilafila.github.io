@@ -22,25 +22,6 @@ async function onSignIn(googleUser) {
   }
 }
 
-function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().catch(function () {
-    console.log('User signed out.');
-  });
-}
-
-function loaded() {
-  const homeBtn = document.querySelector('.home-btn');
-  homeBtn.click();
-  console.log('hey');
-
-  let link = document.createElement('a');
-  link.href = '#';
-  link.onclick = "signOut();";
-  link.click();
-  delete link;
-}
-
 const router = {
   redirectToLogIn: () => {
     const image = document.querySelector('.booking-img');
@@ -362,8 +343,6 @@ const BookComponent = {
     const returnTime = document.querySelector('.return').value;
     const timeIn = document.querySelector('.timeIn').value;
     const timeOut = document.querySelector('.timeOut').value;
-    console.log(!timeIn);
-    console.log(!timeOut);
 
     if (!departureTime || !returnTime) {
       alert('Please, filled out all fields!!!');
@@ -418,7 +397,6 @@ const BookComponent = {
       localStorage.setItem('roomInfo', JSON.stringify(roomInfo));
       const availableRoomsJson = await response.json();
       const availableRooms = Array.from(availableRoomsJson);
-      console.log(availableRooms);
       const icons = Array.from(document.querySelectorAll('.room-icon'));
       if (roomInfo.type === 'family') {
         if (+icons[0].dataset.number === 1) {
@@ -457,26 +435,4 @@ const BookComponent = {
     }
   },
 
-}
-
-const ErrorComponent = {
-  handleError: () => {
-    const link = document.createElement('a');
-    link.href = '#/login';
-    link.click();
-    delete link;
-  },
-
-  render: () => {
-    return `
-      <section class="error-section">
-        <div class="error-container">
-          <div class="error">
-            <h1>You must log in before going to book page!!!</h1>
-          </div>
-          <button class="strong-btn error-btn" onclick="ErrorComponent.handleError()">Log in</button>
-        </div>
-      </section>
-    `;
-  }
 }
