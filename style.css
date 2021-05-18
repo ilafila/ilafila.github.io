@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;900&display=swap');
+
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(203, 228, 252, 0.74);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+td, th{
+  text-align: left;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+td:not(.buttons) {
+  border-bottom: 1px solid #bbb;
+}
+
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 92%;
+  height: 92%;
+  border-radius: 8.5%;
+  -webkit-border-radius: 8.5%;
+  -moz-border-radius: 8.5%;
+  -ms-border-radius: 8.5%;
+  -o-border-radius: 8.5%;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  margin-left: 6%;
+  margin-top: 5%;
+  font-size: 25px;
+}
+
+.img-container{
+  display: flex;
+  margin-left: 6%;
+  margin-left: 25%;
+}
+
+/* Img */
+
+.logo{
+  width: 50px;
+  height: 50px;
+  margin-right: 3%;
+}
+
+.girl-img{
+  width: 300px;
+  height: 200px;
+  margin-left: 5%;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+
+/* Icons */
+
+.confirm-icon{
+  color: green;
+}
+
+.refuse-icon{
+  color: brown;
+}
+
+/* Map */
+
+.map-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 50%;
+}
+
+#map {
+  height: 100%;
+  width: 90%;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+
+/* Table */
+
+.table-section{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.table-section__table-container{
+  height: 50%;
+  overflow: scroll;
+}
+
+.table-section__table-container__table{
+  width: 90%;
+  height: 100px;
+  margin-left: 6%;
+  border-collapse: collapse;
+  overflow-y: scroll;
+}
