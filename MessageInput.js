@@ -19,6 +19,7 @@ class MessageInput {
 class EmojiPicker {
     constructor() {
         this.sections;
+        this.objectOfEmojiElement;
         this.getEmoji();
     }
 
@@ -67,12 +68,12 @@ class EmojiPicker {
             }
         }
 
-        return objectOfEmojiElement;
+        this.objectOfEmojiElement = objectOfEmojiElement;
     }
 
     render() {
         const [emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink,
-            sportsAndActivities, travelAndTransport, items, flags] = EmojiPicker.createEmoji();
+            sportsAndActivities, travelAndTransport, items, flags] = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
         return `<div>
                   <div class="emoji-table hide">
