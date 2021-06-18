@@ -45,7 +45,7 @@ class EmojiPicker {
         messageInput.insertAdjacentHTML('beforeend', emojiElement);
     }
 
-    createEmoji() {
+    static createEmoji() {
         const objectOfEmojiElement = {
             emotions: '',
             gesturesAndPeople: '',
@@ -72,7 +72,7 @@ class EmojiPicker {
 
     render() {
         const [emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink,
-            sportsAndActivities, travelAndTransport, items, flags] = this.createEmoji();
+            sportsAndActivities, travelAndTransport, items, flags] = EmojiPicker.createEmoji();
         const messageInput = new MessageInput();
         return `<div>
                   <div class="emoji-table hide">
