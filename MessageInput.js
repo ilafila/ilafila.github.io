@@ -56,7 +56,7 @@ class EmojiPicker {
             sportsAndActivities: '',
             travelAndTransport: '',
             items: '',
-            flags: ''
+            flags: '',
         }
 
         for (section in this.sections) {
@@ -72,6 +72,8 @@ class EmojiPicker {
     }
 
     render() {
+        console.log(this);
+        this.getEmoji();
         const [emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink,
             sportsAndActivities, travelAndTransport, items, flags] = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
