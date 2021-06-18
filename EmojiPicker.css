@@ -1,4 +1,4 @@
-.emoji-wrapper {
+.emoji-btn-wrapper {
     position: absolute;
     top: 12px;
     right: 10px;
@@ -19,6 +19,9 @@
 }
 
 .emoji-table {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 300px;
     height: 281px;
     background: #FFFFFF;
@@ -30,4 +33,22 @@
 
 .hide {
     visibility: hidden;
+}
+
+.emoji-table__emoji-navbar {
+    position: absolute;
+    bottom: 0;
+    width: 298px;
+    height: 36px;
+    background: #EBEEF2;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.emoji-block__emoji-section {
+    margin-bottom: 10px;
+
+}
+
+.section-name-wrapper {
+    margin-bottom: 5px;
 }
