@@ -1,41 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <title>IoT</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./script.js"></script>
-  </head>
-  <body>
-    <div class="app">
-      <div class="table-section">
-        <div class="logo-container">
-          <img class="logo" src="./img/covid-icon.png" />
-          <p>Дистанция трекер</p>
-        </div>
-        <div class="img-container">
-          <img class="girl-img" src="./img/IMG_0133.jpg" />
-        </div>
-        <div class="table-section__table-container">
-          <table class="table-section__table-container__table">
-            <tr class="first-row">
-              <th>Имя</th>
-              <th>Широта</th>
-              <th>Долгота</th>
-              <th>Время</th>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="map-container">
-        <div id="map"></div>
-      </div>
-    </div>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvUEiH9_Ze2AraJqgPh_d5y0Sn9ZMdJUo&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-  </body>
-</html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="MessageInput.css" />
+    <link rel="stylesheet" type="text/css" href="EmojiPicker.css" />
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="MessageInput.js"></script>
+</body>
