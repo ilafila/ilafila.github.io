@@ -31,10 +31,10 @@
     background: #FFFFFF;
     border: 1px solid #C5D0DB;
     border-radius: 4px;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 21px;
     font-weight: normal;
-    /* word-wrap: break-word; */
+    word-wrap: break-word;
 }
 
 .message-input br {
