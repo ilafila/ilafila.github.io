@@ -29,6 +29,7 @@
     border: 1px solid #C5D0DB;
     border-radius: 4px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
 }
 
 .hide {
@@ -46,7 +47,6 @@
 
 .emoji-block__emoji-section {
     margin-bottom: 10px;
-
 }
 
 .section-name-wrapper {
@@ -73,12 +73,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    width: 26px;
-    height: 26px;
+    width: 23px;
+    height: 23px;
 }
 
 .emoji-wrapper:hover {
     background: #F0F2F5;
     border-radius: 3px;
+}
+
+.emoji-section {
+    display: flex;
 }

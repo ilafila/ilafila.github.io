@@ -83,55 +83,73 @@ class EmojiPicker {
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Эмоции</p>
                         </div>
-                        ${emotions}
+                        <div class="emoji-section">
+                          ${emotions}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Жесты и люди</p>
                         </div>
-                        ${gesturesAndPeople}
+                        <div class="emoji-section">
+                          ${gesturesAndPeople}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Символы</p>
                         </div>
-                        ${symbols}
+                        <div class="emoji-section">
+                          ${symbols}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Животные и растения</p>
                         </div>
-                        ${animalsAndPlants}
+                        <div class="emoji-section">
+                          ${animalsAndPlants}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Еда и напитки</p>
                         </div>
-                        ${foodAndDrink}
+                        <div class="emoji-section">
+                          ${foodAndDrink}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Спорт и активности</p>
                         </div>
-                        ${sportsAndActivities}
+                        <div class="emoji-section">
+                          ${sportsAndActivities}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Путешествия и транспорт</p>
                         </div>
-                        ${travelAndTransport}
+                        <div class="emoji-section">
+                          ${travelAndTransport}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Предметы</p>
                         </div>
-                        ${items}
+                        <div class="emoji-section">
+                          ${items}
+                        </div>
                       </div>
                       <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Флаги</p>
                         </div>
-                        ${flags}
+                        <div class="emoji-section">
+                          ${flags}
+                        </div>
                       </div>
                     </div>
                     <div class="emoji-table__emoji-navbar"></div>
