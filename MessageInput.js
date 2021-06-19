@@ -59,7 +59,10 @@ class EmojiPicker {
             flags: '',
         }
 
+        console.log('tested');
+
         for (section in this.sections) {
+            console.log(section);
             for (emoji in section) {
                 const emojiElement = `<div class="emoji-wrapper">
                                         <span onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
@@ -73,14 +76,12 @@ class EmojiPicker {
     }
 
     render() {
-        console.log('oh');
         this.createEmoji();
         console.log(this.objectOfEmojiElement);
         const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
         return `<div>
                   <div class="emoji-table hide">
-                    <span onclick="EmojiPicker.addEmoji(this)" data-emoji="😱">😱</span>
                     <div class="emoji-table__emoji-block">
                       <div class="emoji-block__emotions">
                         <div class="section-name-wrapper">
@@ -151,4 +152,19 @@ function createEmojiPicker () {
     app.insertAdjacentHTML('afterbegin', emojiPicker.render());
 }
 
-window.addEventListener('load', createEmojiPicker);
+// window.addEventListener('load', createEmojiPicker);
+
+class A {
+    constructor(){
+        this.c = 1;
+    }
+    static b() {
+        console.log(this.c+2);
+    }
+    render() {
+        console.log(this);
+        A.b();
+    }
+}
+
+
