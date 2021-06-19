@@ -20,7 +20,6 @@ class EmojiPicker {
     constructor() {
         this.sections;
         this.objectOfEmojiElement;
-        this.getEmoji();
     }
 
     async getEmoji() {
@@ -29,7 +28,6 @@ class EmojiPicker {
         if(response.ok){
             const res = await response.json();
             this.sections = res;
-            console.log('HMMMM');
             console.log(this);
             console.log(this.sections);
         } else {
@@ -50,6 +48,7 @@ class EmojiPicker {
     }
 
     createEmoji() {
+        this.getEmoji();
         const objectOfEmojiElement = {
             emotions: '',
             gesturesAndPeople: '',
