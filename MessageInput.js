@@ -28,14 +28,14 @@ class EmojiPicker {
         if(response.ok){
             const res = await response.json();
             console.log(typeof res);
-            this.sections = JSON.parse(res);
-            for (let i in res){
-                console.log(i);
-            }
-            console.log('тЕСТ');
-            for (let j in this.sections){
-                console.log(j);
-            }
+            
+            // for (let i in res){
+            //     console.log(i);
+            // }
+            // console.log('тЕСТ');
+            // for (let j in this.sections){
+            //     console.log(j);
+            // }
             console.log(this);
             console.log(this.sections);
         } else {
