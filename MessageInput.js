@@ -74,7 +74,6 @@ class EmojiPicker {
 
     render() {
         this.createEmoji();
-        console.log('test');
         console.log(this.objectOfEmojiElement);
         const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
