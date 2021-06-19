@@ -155,11 +155,12 @@ class EmojiPicker {
 
 function createEmojiPicker () {
     const emojiPicker = new EmojiPicker();
-    emojiPicker.getEmoji();
-    
-
-    const app = document.getElementById('app');
-    app.insertAdjacentHTML('afterbegin', emojiPicker.render());
+    console.log('fisrt');
+    emojiPicker.getEmoji().then(() => {
+        const app = document.getElementById('app');
+        app.insertAdjacentHTML('afterbegin', emojiPicker.render());
+    })
+    console.log('second');
 }
 
 window.addEventListener('load', createEmojiPicker);
