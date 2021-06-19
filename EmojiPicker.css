@@ -82,6 +82,7 @@
     align-items: center;
     width: 40px;
     height: 26px;
+    margin-right: 10px;
 
 }
 
@@ -93,7 +94,7 @@
     height: 26px;
 }
 
-.emoji-wrapper:hover {
+.emoji-wrapper:hover, .big-emoji-wrapper:hover {
     background: #F0F2F5;
     border-radius: 3px;
 }
