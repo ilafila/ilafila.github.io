@@ -29,6 +29,9 @@ class EmojiPicker {
         if(response.ok){
             const res = await response.json();
             this.sections = res;
+            console.log('HMMMM');
+            console.log(this);
+            console.log(this.sections);
         } else {
             alert("Ошибка HTTP: " + response.status);
         }
@@ -62,7 +65,11 @@ class EmojiPicker {
         console.log(this.sections);
 
         for (section in this.sections) {
-            console.log(section);
+            console.log('Секция' + section);
+            console.log('Значение секции' + this.sections[section]);
+            for(emoji in this.sections[section]){
+                console.log('Эмодзи' + emoji);
+            }
         }
 
         for (section in this.sections) {
