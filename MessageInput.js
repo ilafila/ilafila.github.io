@@ -48,7 +48,6 @@ class EmojiPicker {
     }
 
     createEmoji() {
-        this.getEmoji();
         const objectOfEmojiElement = {
             emotions: '',
             gesturesAndPeople: '',
@@ -156,6 +155,8 @@ class EmojiPicker {
 
 function createEmojiPicker () {
     const emojiPicker = new EmojiPicker();
+    emojiPicker.getEmoji();
+    
 
     const app = document.getElementById('app');
     app.insertAdjacentHTML('afterbegin', emojiPicker.render());
