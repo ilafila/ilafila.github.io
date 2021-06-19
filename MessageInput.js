@@ -46,7 +46,7 @@ class EmojiPicker {
         messageInput.insertAdjacentHTML('beforeend', emojiElement);
     }
 
-    static createEmoji() {
+    createEmoji() {
         const objectOfEmojiElement = {
             emotions: '',
             gesturesAndPeople: '',
@@ -73,6 +73,7 @@ class EmojiPicker {
     }
 
     render() {
+        console.log('oh');
         this.createEmoji();
         console.log(this.objectOfEmojiElement);
         const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
