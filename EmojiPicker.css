@@ -58,3 +58,8 @@
     height: 200px;
     overflow-y: scroll;
 }
+
+span {
+    width: 16px;
+    height: 16px;
+}

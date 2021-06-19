@@ -29,16 +29,6 @@ class EmojiPicker {
             const res = await response.json();
             console.log(typeof res);
             this.sections = res;
-            
-            // for (let i in res){
-            //     console.log(i);
-            // }
-            // console.log('тЕСТ');
-            // for (let j in this.sections){
-            //     console.log(j);
-            // }
-            console.log(this);
-            console.log(this.sections);
         } else {
             alert("Ошибка HTTP: " + response.status);
         }
@@ -69,16 +59,6 @@ class EmojiPicker {
             flags: '',
         }
 
-        console.log(this.sections);
-
-        // for (section in this.sections) {
-        //     console.log('Секция' + section);
-        //     console.log('Значение секции' + this.sections[section]);
-        //     for(emoji in this.sections[section]){
-        //         console.log('Эмодзи' + emoji);
-        //     }
-        // }
-
         for (let section in this.sections) {
             for (let emojiNumber in this.sections[section]) {
                 let emoji = this.sections[section][emojiNumber];
@@ -87,7 +67,6 @@ class EmojiPicker {
                                       </div> `;
                 objectOfEmojiElement[section] += emojiElement;
             }
-            console.log(objectOfEmojiElement[section]);
         }
 
         this.objectOfEmojiElement = objectOfEmojiElement;
@@ -95,7 +74,6 @@ class EmojiPicker {
 
     render() {
         this.createEmoji();
-        console.log(this.objectOfEmojiElement);
         const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
         return `<div>
