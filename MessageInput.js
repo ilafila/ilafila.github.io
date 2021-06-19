@@ -74,8 +74,8 @@ class EmojiPicker {
     render() {
         console.log(this);
         this.getEmoji();
-        const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink,
-            sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
+        console.log('yeee');
+        const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
         const messageInput = new MessageInput();
         return `<div>
                   <div class="emoji-table hide">
