@@ -79,7 +79,7 @@ class EmojiPicker {
         // }
 
         for (let section in this.sections) {
-            for (emoji in this.sections[section]) {
+            for (let emoji in this.sections[section]) {
                 const emojiElement = `<div class="emoji-wrapper">
                                         <span onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                                       </div> `;
