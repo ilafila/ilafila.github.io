@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: SF Pro Text;
+    font-style: normal;
+    font-weight: normal;
 }
 
 #app {
@@ -19,7 +22,7 @@
 
 .message-input {
     /* position: relative; */
-    width: 300px;
+    width: 310px;
     height: fit-content;
     min-height: 36px;
     max-height: 200px;
