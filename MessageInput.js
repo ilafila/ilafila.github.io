@@ -63,7 +63,7 @@ class EmojiPicker {
 
         for (section in this.sections) {
             console.log(section);
-            for (emoji in section) {
+            for (emoji in this.sections[section]) {
                 const emojiElement = `<div class="emoji-wrapper">
                                         <span onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                                       </div> `;
@@ -152,19 +152,4 @@ function createEmojiPicker () {
     app.insertAdjacentHTML('afterbegin', emojiPicker.render());
 }
 
-// window.addEventListener('load', createEmojiPicker);
-
-class A {
-    constructor(){
-        this.c = 1;
-    }
-    static b() {
-        console.log(this.c+2);
-    }
-    render() {
-        console.log(this);
-        A.b();
-    }
-}
-
-
+window.addEventListener('load', createEmojiPicker);
