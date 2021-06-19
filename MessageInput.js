@@ -59,10 +59,13 @@ class EmojiPicker {
             flags: '',
         }
 
-        console.log('tested');
+        console.log(this.sections);
 
         for (section in this.sections) {
             console.log(section);
+        }
+
+        for (section in this.sections) {
             for (emoji in this.sections[section]) {
                 const emojiElement = `<div class="emoji-wrapper">
                                         <span onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
