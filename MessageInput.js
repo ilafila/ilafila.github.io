@@ -62,40 +62,31 @@ class EmojiPicker {
         for (let section in this.sections) {
             for (let emojiNumber in this.sections[section]) {
                 const emoji = this.sections[section][emojiNumber];
-                let bagIconUrl;
+                let bigEmoji;
                 switch(emoji) {
-                  case "☺":
-                    bagIconUrl = './emoji/bag-emoji-1.png';
-                    break;
-                  case "☹":
-                    bagIconUrl = './emoji/bag-emoji-2.png';
-                    break;
-                  case "☠":
-                    bagIconUrl = './emoji/bag-emoji-3.png';
-                    break;
                   case "👩‍❤️‍💋‍👨":
-                    bagIconUrl = './emoji/bad-emodji-1.png';
+                    bigEmoji = true;
                     break;
                   case "👨‍❤️‍💋‍👨":
-                    bagIconUrl = './emoji/bad-emoji-2.png';
+                    bigEmoji = true;
                     break;
                   case "👩‍❤️‍💋‍👩":
-                    bagIconUrl = './emoji/bad-emoji-3.png';
+                    bigEmoji = true;
                     break;
                   case "👩‍❤️‍👨":
-                    bagIconUrl = './emoji/bad-emoji-4.png';
+                    bigEmoji = true;
                     break;
                   case "👨‍❤️‍👨":
-                    bagIconUrl = './emoji/bad-emoji-5.png';
+                    bigEmoji = true;
                     break;
                   case "👩‍❤‍👩":
-                    bagIconUrl = './emoji/bad-emoji-6.png';
+                    bigEmoji = true;
                     break;
                 }
                 let emojiElement;
-                if(bagIconUrl) {
-                  emojiElement = `<div class="emoji-wrapper">
-                                    <img class="emoji-img" src="${bagIconUrl}" alt="${emoji}">
+                if(bigEmoji) {
+                  emojiElement = `<div class="big-emoji-wrapper">
+                                    <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                                   </div>`;
                 } else {
                   emojiElement = `<div class="emoji-wrapper">

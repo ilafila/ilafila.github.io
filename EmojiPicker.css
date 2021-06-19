@@ -70,10 +70,19 @@
 
 .emoji-icon {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 20px;
     height: 20px;
+    font-size: 20px;
+}
+
+.big-emoji-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 26px;
+
 }
 
 .emoji-wrapper {
