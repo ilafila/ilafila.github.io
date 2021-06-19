@@ -79,7 +79,7 @@ class EmojiPicker {
         return `<div>
                   <div class="emoji-table hide">
                     <div class="emoji-table__emoji-block">
-                      <div class="emoji-block__emotions">
+                      <div class="emoji-block__emoji-section">
                         <div class="section-name-wrapper">
                           <p class="section-name-wrapper__section-name">Эмоции</p>
                         </div>

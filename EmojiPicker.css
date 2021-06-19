@@ -46,6 +46,9 @@
 }
 
 .emoji-block__emoji-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 275px;
     margin-bottom: 10px;
 }
 
@@ -55,6 +58,7 @@
 
 .emoji-table__emoji-block {
     display: flex;
+    flex-direction: column;
     width: 295px;
     height: 200px;
     padding-left: 10px;
@@ -65,8 +69,11 @@
 }
 
 .emoji-icon {
-    width: 16px;
-    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
 }
 
 .emoji-wrapper {
@@ -84,4 +91,5 @@
 
 .emoji-section {
     display: flex;
+    flex-wrap: wrap;
 }
