@@ -28,6 +28,7 @@ class EmojiPicker {
         if(response.ok){
             const res = await response.json();
             console.log(typeof res);
+            this.sections = res;
             
             // for (let i in res){
             //     console.log(i);
