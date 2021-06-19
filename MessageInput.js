@@ -27,7 +27,15 @@ class EmojiPicker {
         const response = await fetch(request);
         if(response.ok){
             const res = await response.json();
-            this.sections = res;
+            console.log(typeof res);
+            this.sections = JSON.parse(res);
+            for (let i in res){
+                console.log(i);
+            }
+            console.log('тЕСТ');
+            for (let j in this.sections){
+                console.log(j);
+            }
             console.log(this);
             console.log(this.sections);
         } else {
@@ -62,15 +70,15 @@ class EmojiPicker {
 
         console.log(this.sections);
 
-        for (section in this.sections) {
-            console.log('Секция' + section);
-            console.log('Значение секции' + this.sections[section]);
-            for(emoji in this.sections[section]){
-                console.log('Эмодзи' + emoji);
-            }
-        }
+        // for (section in this.sections) {
+        //     console.log('Секция' + section);
+        //     console.log('Значение секции' + this.sections[section]);
+        //     for(emoji in this.sections[section]){
+        //         console.log('Эмодзи' + emoji);
+        //     }
+        // }
 
-        for (section in this.sections) {
+        for (let section in this.sections) {
             for (emoji in this.sections[section]) {
                 const emojiElement = `<div class="emoji-wrapper">
                                         <span onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
@@ -155,12 +163,10 @@ class EmojiPicker {
 
 function createEmojiPicker () {
     const emojiPicker = new EmojiPicker();
-    console.log('fisrt');
     emojiPicker.getEmoji().then(() => {
         const app = document.getElementById('app');
         app.insertAdjacentHTML('afterbegin', emojiPicker.render());
     })
-    console.log('second');
 }
 
 window.addEventListener('load', createEmojiPicker);
