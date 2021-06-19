@@ -88,7 +88,7 @@ class EmojiPicker {
                   emojiElement = `<div class="big-emoji-wrapper">
                                     <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                                   </div>`;
-                  console.log('biiig');
+                  console.log('biiig test');
                 } else {
                   emojiElement = `<div class="emoji-wrapper">
                                     <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>

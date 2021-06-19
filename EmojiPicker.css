@@ -76,17 +76,7 @@
     font-size: 20px;
 }
 
-.big-emoji-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 26px;
-    margin-right: 10px;
-
-}
-
-.emoji-wrapper {
+.emoji-wrapper, .big-emoji-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
