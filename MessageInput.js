@@ -106,16 +106,12 @@ class EmojiPicker {
   static addEmoji(element) {
       const messageInput = document.querySelector('.message-input');
       const emoji= element.dataset.emoji;
-      console.log(emoji);
-      console.log(emoji + '');
       const emojiInput = `<span>${emoji} </span>`;
       messageInput.insertAdjacentHTML('beforeend', emojiInput);
   
       let isDuplicate = false;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        console.log('Elements of storage')
-        console.log(localStorage.getItem(key));
         if (key != 'emojiPosition') {
           if(emoji === localStorage.getItem(key)){
             isDuplicate = true;
@@ -124,8 +120,14 @@ class EmojiPicker {
       }
 
       if(!isDuplicate) {
-        if(localStorage.length >= 26) {
-          localStorage.setItem('emojiPosition', 1);
+        const recentEmojiSection = document.querySelector('.recent-emoji-section');
+        if(+localStorage.getItem('emojiPosition') == 26) {
+          recentEmojiSection.removeChild(recentEmojiSection.firstChild);
+          const emojiElement = `<div class="emoji-wrapper">
+                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                              </div> `;
+          recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
+          return;
         }
   
         const emojiPosition = +localStorage.getItem('emojiPosition');
@@ -136,7 +138,6 @@ class EmojiPicker {
         const emojiElement = `<div class="emoji-wrapper">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                               </div> `;
-        const recentEmojiSection = document.querySelector('.recent-emoji-section');
         recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
       }
   }
@@ -257,8 +258,10 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('css');
-  localStorage.setItem('emojiPosition', 1);
+  console.log('haribo');
+  if(localStorage.length === 0) {
+    localStorage.setItem('emojiPosition', 1);
+  }
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
       const app = document.getElementById('app');
