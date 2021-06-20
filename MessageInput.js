@@ -1,7 +1,7 @@
 class EmojiButton {
   render() {
       return ` <div class="emoji-btn-wrapper emoji-input-wrapper" role="button" onclick="EmojiPicker.showEmoji()">
-                <div class="emoji-btn"></div>
+                <div class="emoji-btn emoji-btn-input"></div>
               </div>`;
   }
 }
