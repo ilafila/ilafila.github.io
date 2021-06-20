@@ -107,21 +107,23 @@ class EmojiPicker {
   static addEmoji(element) {
       const messageInput = document.querySelector('.message-input');
       const emoji= element.dataset.emoji;
-      const emojiElement = `<span>${emoji}</span>`;
-      messageInput.insertAdjacentHTML('beforeend', emojiElement);
+      const emojiInput = `<span>${emoji}</span>`;
+      messageInput.insertAdjacentHTML('beforeend', emojiInput);
   
-      let isDuplicate = false;
+      let isDuplicate;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key != 'emojiPosition') {
           if(emoji === localStorage.getItem(key)){
             isDuplicate = true;
+          } else {
+            isDuplicate = false;
           }
         }
       }
 
       if(!isDuplicate) {
-        if(localStorage.length > 26) {
+        if(localStorage.length >= 26) {
           localStorage.setItem('emojiPosition', 1);
         }
   
@@ -130,9 +132,11 @@ class EmojiPicker {
         const emojiNewPosition = emojiPosition + 1;
         localStorage.setItem('emojiPosition', emojiNewPosition);
   
-        const recentEmoji = RecentEmojiBlock.getResentEmoji();
+        const emojiElement = `<div class="emoji-wrapper">
+                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                              </div> `;
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
-        recentEmojiSection.insertAdjacentHTML('beforeend', recentEmoji);
+        recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
       }
   }
 
