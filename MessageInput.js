@@ -66,7 +66,7 @@ class RecentEmojiBlock {
     for(let i = 0; i < sortedArrOfKeys.length; i++){
       const key = sortedArrOfKeys[i];
       const emoji = localStorage.getItem(key);
-      const emojiElement = `<div class="emoji-wrapper">
+      const emojiElement = `<div id="emoji-wrapper-${key}" class="emoji-wrapper">
                               <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                             </div> `;
       recentEmoji += emojiElement;
@@ -268,7 +268,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('my boy');
+  console.log('wooorks?!!');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
