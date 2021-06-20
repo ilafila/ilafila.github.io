@@ -57,7 +57,7 @@ class RecentEmojiBlock {
     for(let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key != '0') {
-        arrOfKeys.push(key);
+        arrOfKeys.push(+key);
       }
     }
     arrOfKeys.sort();
@@ -263,7 +263,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('meeen');
+  console.log('maybe?');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
