@@ -268,7 +268,6 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('wooorks?!!');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
@@ -280,7 +279,11 @@ function createEmojiPicker () {
 }
 
 function openEmojiBlock(e) {
-  console.log(e.keyCode);
+  const keyCode = e.keyCode;
+  if(keyCode === 9) {
+    EmojiPicker.showEmoji();
+    console.log('yee');
+  }
 }
 
 window.addEventListener('load', createEmojiPicker);
