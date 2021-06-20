@@ -15,6 +15,9 @@
     width: 36px;
     height: 36px;
     border-radius: 0px 0px 0px 4px;
+}
+
+.emoji-block-active {
     background: #FFFFFF;
 }
 
@@ -86,7 +89,7 @@
     margin-bottom: 5px;
 }
 
-.emoji-table__emoji-block {
+.emoji-table__emoji-block,.emoji-table__recent-emoji-block {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -103,7 +106,7 @@
     font-size: 19px;
 }
 
-.emoji-wrapper, .big-emoji-wrapper {
+.emoji-wrapper,.big-emoji-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,13 +114,13 @@
     height: 26px;
 }
 
-.emoji-wrapper:hover, .big-emoji-wrapper:hover {
+.emoji-wrapper:hover,.big-emoji-wrapper:hover {
     background: #F0F2F5;
     border-radius: 3px;
     cursor: pointer;
 }
 
-.emoji-section {
+.emoji-section,.recent-emoji-section {
     display: flex;
     flex-wrap: wrap;
 }
@@ -130,4 +133,8 @@
     font-weight: 400;
     letter-spacing: 0px;
     text-align: left;
+}
+
+.hidden {
+    display: none;
 }
