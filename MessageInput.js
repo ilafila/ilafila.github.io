@@ -146,7 +146,7 @@ class EmojiPicker {
         const emojiNewPosition = emojiPosition + 1;
         localStorage.setItem('0', emojiNewPosition);
   
-        const emojiElement = `<div class="emoji-wrapper-${emojiPosition}">
+        const emojiElement = `<div class="emoji-wrapper emoji-wrapper-${emojiPosition}">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                               </div> `;
         recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
@@ -269,7 +269,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('maybe now');
+  console.log('finally?');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
