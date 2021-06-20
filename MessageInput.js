@@ -123,7 +123,7 @@ class EmojiPicker {
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
         if(recentEmojiSection.children.length == 25) {
           console.log(recentEmojiSection.firstChild);
-          recentEmojiSection.removeChild(recentEmojiSection.firstChild);
+          recentEmojiSection.removeChild(recentEmojiSection.children[0]);
           if(+localStorage.getItem('emojiPosition') == 26) {
             localStorage.setItem('emojiPosition', 1);
           }
