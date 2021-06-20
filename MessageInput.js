@@ -104,7 +104,7 @@ class EmojiPicker {
       const emojiElement = `<span>${emoji}</span>`;
       messageInput.insertAdjacentHTML('beforeend', emojiElement);
 
-      const emojiElement = `<div class="emoji-wrapper">
+      const emojiWpapper = `<div class="emoji-wrapper">
                               <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                             </div> `;
     
@@ -124,13 +124,13 @@ class EmojiPicker {
         }
   
         const emojiPosition = +localStorage.getItem('emojiPosition');
-        localStorage.setItem(emojiPosition, emojiElement);
+        localStorage.setItem(emojiPosition, emojiWpapper);
         const emojiNewPosition = emojiPosition + 1;
         localStorage.setItem('emojiPosition', emojiNewPosition);
   
         const recentEmoji = RecentEmojiBlock.getResentEmoji();
         const recentEmojiBlock = document.querySelector('.emoji-table__recent-emoji-block');
-        recentEmojiBlock .innerHTML = recentEmoji;
+        recentEmojiBlock.innerHTML = recentEmoji;
       }
   }
 
