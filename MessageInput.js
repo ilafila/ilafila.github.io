@@ -107,7 +107,7 @@ class EmojiPicker {
   static addEmoji(element) {
       const messageInput = document.querySelector('.message-input');
       const emoji= element.dataset.emoji;
-      const emojiInput = `<span>'${emoji}'</span>`;
+      const emojiInput = `<span>${emoji}</span>`;
       messageInput.insertAdjacentHTML('beforeend', emojiInput);
   
       let isDuplicate;
@@ -256,7 +256,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('spider');
+  console.log('spiderman');
   localStorage.setItem('emojiPosition', 1);
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
