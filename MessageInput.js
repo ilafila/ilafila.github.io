@@ -61,7 +61,7 @@ class RecentEmojiBlock {
       }
     }
     console.log(arrOfKeys);
-    const sortedArrOfKeys = arrOfKeys.sort();
+    const sortedArrOfKeys = arrOfKeys.sort(function(a, b){return a-b});
     console.log(sortedArrOfKeys);
     for(let i = 0; i < sortedArrOfKeys.length; i++){
       const key = sortedArrOfKeys[i];
@@ -267,7 +267,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('forsaj');
+  console.log('blin');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
