@@ -121,13 +121,10 @@ class EmojiPicker {
 
       if(!isDuplicate) {
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
-        if(+localStorage.getItem('emojiPosition') == 26) {
+        if(recentEmojiSection.children.length == 25) {
+          console.log(recentEmojiSection.firstChild);
           recentEmojiSection.removeChild(recentEmojiSection.firstChild);
-          const emojiElement = `<div class="emoji-wrapper">
-                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
-                              </div> `;
-          recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
-          return;
+          localStorage.setItem('emojiPosition', 1);
         }
   
         const emojiPosition = +localStorage.getItem('emojiPosition');
