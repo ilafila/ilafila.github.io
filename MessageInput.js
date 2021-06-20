@@ -124,7 +124,9 @@ class EmojiPicker {
         if(recentEmojiSection.children.length == 25) {
           console.log(recentEmojiSection.firstChild);
           recentEmojiSection.removeChild(recentEmojiSection.firstChild);
-          localStorage.setItem('emojiPosition', 1);
+          if(+localStorage.getItem('emojiPosition') == 26) {
+            localStorage.setItem('emojiPosition', 1);
+          }
         }
   
         const emojiPosition = +localStorage.getItem('emojiPosition');
@@ -255,7 +257,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('haribo');
+  console.log('jeeeem');
   if(localStorage.length === 0) {
     localStorage.setItem('emojiPosition', 1);
   }
