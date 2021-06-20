@@ -55,7 +55,7 @@ class RecentEmojiBlock {
     let recentEmoji = '';
     for(let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key != 'emojiPosition') {
+      if (key != '0') {
         const emoji = localStorage.getItem(key);
         const emojiElement = `<div class="emoji-wrapper">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
@@ -112,7 +112,7 @@ class EmojiPicker {
       let isDuplicate = false;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key != 'emojiPosition') {
+        if (key != '0') {
           if(emoji === localStorage.getItem(key)){
             isDuplicate = true;
           }
@@ -124,15 +124,15 @@ class EmojiPicker {
         if(recentEmojiSection.children.length == 25) {
           console.log(recentEmojiSection.firstChild);
           recentEmojiSection.removeChild(recentEmojiSection.children[0]);
-          if(+localStorage.getItem('emojiPosition') == 26) {
-            localStorage.setItem('emojiPosition', 1);
+          if(+localStorage.getItem('0') == 26) {
+            localStorage.setItem('0', 1);
           }
         }
   
         const emojiPosition = +localStorage.getItem('emojiPosition');
         localStorage.setItem(emojiPosition, emoji);
         const emojiNewPosition = emojiPosition + 1;
-        localStorage.setItem('emojiPosition', emojiNewPosition);
+        localStorage.setItem('0', emojiNewPosition);
   
         const emojiElement = `<div class="emoji-wrapper">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
@@ -257,9 +257,9 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('demon');
+  console.log('test');
   if(localStorage.length === 0) {
-    localStorage.setItem('emojiPosition', 1);
+    localStorage.setItem('0', 1);
   }
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
