@@ -256,6 +256,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
+  console.log('cheeel');
   localStorage.setItem('emojiPosition', 1);
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
