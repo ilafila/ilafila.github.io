@@ -1,7 +1,7 @@
 class EmojiButton {
     render() {
-        return ` <div class="emoji-btn-wrapper" role="button" onclick="EmojiPicker.showEmoji()">
-                  <div class="emoji-btn"></div>
+        return ` <div class="emoji-btn-wrapper emoji-input-wrapper" role="button" onclick="EmojiPicker.showEmoji()">
+                  <div class="emoji-btn emoji-btn-input"></div>
                 </div>`;
     }
 }
@@ -62,38 +62,9 @@ class EmojiPicker {
         for (let section in this.sections) {
             for (let emojiNumber in this.sections[section]) {
                 const emoji = this.sections[section][emojiNumber];
-                let bigEmoji;
-                switch(emoji) {
-                  case "👩‍❤️‍💋‍👨":
-                    bigEmoji = true;
-                    break;
-                  case "👨‍❤️‍💋‍👨":
-                    bigEmoji = true;
-                    break;
-                  case "👩‍❤️‍💋‍👩":
-                    bigEmoji = true;
-                    break;
-                  case "👩‍❤️‍👨":
-                    bigEmoji = true;
-                    break;
-                  case "👨‍❤️‍👨":
-                    bigEmoji = true;
-                    break;
-                  case "👩‍❤‍👩":
-                    bigEmoji = true;
-                    break;
-                }
-                let emojiElement;
-                if(bigEmoji) {
-                  emojiElement = `<div class="big-emoji-wrapper">
-                                    <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
-                                  </div>`;
-                  console.log('biiig test');
-                } else {
-                  emojiElement = `<div class="emoji-wrapper">
-                                    <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
-                                  </div> `;
-                }
+                const emojiElement = `<div class="emoji-wrapper">
+                                        <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                                      </div> `;
                 objectOfEmojiElement[section] += emojiElement;
             }
         }
@@ -181,7 +152,16 @@ class EmojiPicker {
                         </div>
                       </div>
                     </div>
-                    <div class="emoji-table__emoji-navbar"></div>
+                    <div class="emoji-table__emoji-navbar">
+                      <div class="emojis-buttons-wrapper">
+                        <div class="emoji-btn-wrapper emoji-open-wrapper">
+                          <div class="emoji-btn emoji-open-btn" role="button"></div>
+                        </div>
+                        <div class="emoji-btn-wrapper emoji-recent-wrapper>
+                          <div class="emoji-btn emoji-recent-btn" role="button"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   ${messageInput.render()}
                 </div>`;

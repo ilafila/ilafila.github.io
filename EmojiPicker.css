@@ -1,21 +1,51 @@
 .emoji-btn-wrapper {
-    position: absolute;
-    top: 12px;
-    right: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.emoji-input-wrapper {
+    position: absolute;
+    top: 12px;
+    right: 1px;
     z-index: 3;
+}
+
+.emoji-open-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 0px 0px 0px 4px;
+    background: #FFFFFF;
+}
+
+.emoji-recent-wrapper {
+    width: 36px;
+    height: 36px;
+}
+
+.emojis-buttons-wrapper {
+    display: flex;
 }
 
 .emoji-btn {
     width: 20px;
     height: 20px;
+}
+
+.emoji-btn-input {
     background: url('./icons/Icon-input.svg');
 }
 
-.emoji-btn:hover {
+.emoji-btn-input:hover {
     background: url('./icons/Icon-input hover.svg');
+}
+
+.emoji-open-btn {
+    background: url('./icons/Icon-input hover.svg');
+}
+
+.emoji-recent-btn {
+    background: url('./icons/Icon-resent.svg');
 }
 
 .emoji-table {
