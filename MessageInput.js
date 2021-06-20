@@ -53,15 +53,21 @@ class EmojiNavbar {
 class RecentEmojiBlock {
   static getResentEmoji() {
     let recentEmoji = '';
+    let arrOfKeys = [];
     for(let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key != '0') {
-        const emoji = localStorage.getItem(key);
-        const emojiElement = `<div class="emoji-wrapper">
-                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
-                              </div> `;
-        recentEmoji += emojiElement;
+        arrOfKeys.append(key);
       }
+    }
+    arrOfKeys.sort();
+    for(let i = 0; i < arrOfKeys.length; i++){
+      const key = arrOfKeys[i];
+      const emoji = localStorage.getItem(key);
+      const emojiElement = `<div class="emoji-wrapper">
+                              <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                            </div> `;
+        recentEmoji += emojiElement;
     }
     return recentEmoji;
   }
@@ -257,7 +263,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('crash');
+  console.log('oh blin');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
