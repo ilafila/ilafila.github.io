@@ -107,14 +107,14 @@ class EmojiPicker {
   static addEmoji(element) {
       const messageInput = document.querySelector('.message-input');
       const emoji= element.dataset.emoji;
-      const emojiInput = `<span>${emoji}</span>`;
+      const emojiInput = `<span>'${emoji}'</span>`;
       messageInput.insertAdjacentHTML('beforeend', emojiInput);
   
       let isDuplicate;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key != 'emojiPosition') {
-          if(emoji === localStorage.getItem(key)){
+          if(emoji + ''  == localStorage.getItem(key)){
             isDuplicate = true;
           } else {
             isDuplicate = false;
@@ -256,7 +256,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('cheeel');
+  console.log('spider');
   localStorage.setItem('emojiPosition', 1);
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
