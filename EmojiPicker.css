@@ -80,6 +80,7 @@
 
 .emoji-block__emoji-section {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 290px;
     padding-top: 10px;
