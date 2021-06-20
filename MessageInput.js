@@ -60,14 +60,18 @@ class RecentEmojiBlock {
         arrOfKeys.push(+key);
       }
     }
+    console.log(arrOfKeys);
     arrOfKeys.sort();
+    console.log(arrOfKeys);
     for(let i = 0; i < arrOfKeys.length; i++){
       const key = arrOfKeys[i];
+      console.log('Ключ' +  key);
       const emoji = localStorage.getItem(key);
+      console.log('Эмодзя' + emoji)
       const emojiElement = `<div class="emoji-wrapper">
                               <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                             </div> `;
-        recentEmoji += emojiElement;
+      recentEmoji += emojiElement;
     }
     return recentEmoji;
   }
@@ -263,7 +267,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('maybe?');
+  console.log('ah');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
