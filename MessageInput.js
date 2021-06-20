@@ -129,7 +129,7 @@ class EmojiPicker {
           }
         }
   
-        const emojiPosition = +localStorage.getItem('emojiPosition');
+        const emojiPosition = +localStorage.getItem('0');
         localStorage.setItem(emojiPosition, emoji);
         const emojiNewPosition = emojiPosition + 1;
         localStorage.setItem('0', emojiNewPosition);
@@ -257,7 +257,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('test');
+  console.log('crash');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
