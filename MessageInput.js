@@ -132,8 +132,9 @@ class EmojiPicker {
       if(!isDuplicate) {
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
         if(recentEmojiSection.children.length == 25) {
-          console.log(recentEmojiSection.firstChild);
-          recentEmojiSection.removeChild(recentEmojiSection.children[0]);
+          const oldEmojiElement = document.querySelector(`.${localStorage.getItem('0')}`)
+          oldEmojiElement.remove();
+          // recentEmojiSection.removeChild(recentEmojiSection.children[0]);
           if(+localStorage.getItem('0') == 26) {
             localStorage.setItem('0', 1);
           }
@@ -144,7 +145,7 @@ class EmojiPicker {
         const emojiNewPosition = emojiPosition + 1;
         localStorage.setItem('0', emojiNewPosition);
   
-        const emojiElement = `<div class="emoji-wrapper">
+        const emojiElement = `<div class="emoji-wrapper ${emojiPosition}">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                               </div> `;
         recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
@@ -267,7 +268,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('blin');
+  console.log('it works?');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
