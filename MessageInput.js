@@ -56,13 +56,11 @@ class RecentEmojiBlock {
     let arrOfKeys = [];
     for(let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key != '0') {
+      if (key != 'emojiPosition') {
         arrOfKeys.push(+key);
       }
     }
-    console.log(arrOfKeys);
     const sortedArrOfKeys = arrOfKeys.sort(function(a, b){return a-b});
-    console.log(sortedArrOfKeys);
     for(let i = 0; i < sortedArrOfKeys.length; i++){
       const key = sortedArrOfKeys[i];
       const emoji = localStorage.getItem(key);
@@ -120,7 +118,7 @@ class EmojiPicker {
       let isDuplicate = false;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key != '0') {
+        if (key != 'emojiPosition') {
           if(emoji === localStorage.getItem(key)){
             isDuplicate = true;
           }
@@ -130,20 +128,18 @@ class EmojiPicker {
       if(!isDuplicate) {
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
         if(recentEmojiSection.children.length == 25) {
-          if(+localStorage.getItem('0') == 26) {
-            localStorage.setItem('0', 1);
+          if(+localStorage.getItem('emojiPosition') == 26) {
+            localStorage.setItem('emojiPosition', 1);
           }
-          const oldEmojiId = `emoji-wrapper-${localStorage.getItem('0')}`;
-          console.log(oldEmojiId);
+          const oldEmojiId = `emoji-wrapper-${localStorage.getItem('emojiPosition')}`;
           const oldEmojiElement = document.getElementById(oldEmojiId);
           oldEmojiElement.remove();
-          // recentEmojiSection.removeChild(recentEmojiSection.children[0]);
         }
   
-        const emojiPosition = +localStorage.getItem('0');
+        const emojiPosition = +localStorage.getItem('emojiPosition');
         localStorage.setItem(emojiPosition, emoji);
         const emojiNewPosition = emojiPosition + 1;
-        localStorage.setItem('0', emojiNewPosition);
+        localStorage.setItem('emojiPosition', emojiNewPosition);
   
         const emojiElement = `<div id="emoji-wrapper-${emojiPosition}" class="emoji-wrapper">
                                 <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
@@ -268,9 +264,8 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('wooorks?!!');
   if(localStorage.length === 0) {
-    localStorage.setItem('0', 1);
+    localStorage.setItem('emojiPosition', 1);
   }
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
