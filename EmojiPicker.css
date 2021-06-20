@@ -70,7 +70,7 @@
     align-items: center;
     width: 20px;
     height: 20px;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .emoji-wrapper, .big-emoji-wrapper {
@@ -84,6 +84,7 @@
 .emoji-wrapper:hover, .big-emoji-wrapper:hover {
     background: #F0F2F5;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .emoji-section {
