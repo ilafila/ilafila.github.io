@@ -257,7 +257,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('jeeeem');
+  console.log('demon');
   if(localStorage.length === 0) {
     localStorage.setItem('emojiPosition', 1);
   }
