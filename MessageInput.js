@@ -111,16 +111,14 @@ class EmojiPicker {
       const emojiInput = `<span>${emoji} </span>`;
       messageInput.insertAdjacentHTML('beforeend', emojiInput);
   
-      let isDuplicate;
+      let isDuplicate = false;
       for(let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
+        console.log('Elements of storage')
+        console.log(localStorage.getItem(key));
         if (key != 'emojiPosition') {
-          if(emoji + ''  == localStorage.getItem(key)){
+          if(emoji === localStorage.getItem(key)){
             isDuplicate = true;
-            console.log('yes');
-          } else {
-            isDuplicate = false;
-            console.log('no');
           }
         }
       }
@@ -259,7 +257,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('js');
+  console.log('css');
   localStorage.setItem('emojiPosition', 1);
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmoji().then(() => {
