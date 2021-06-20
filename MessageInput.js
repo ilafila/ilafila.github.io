@@ -65,9 +65,7 @@ class RecentEmojiBlock {
     console.log(sortedArrOfKeys);
     for(let i = 0; i < sortedArrOfKeys.length; i++){
       const key = sortedArrOfKeys[i];
-      console.log('Ключ' +  key);
       const emoji = localStorage.getItem(key);
-      console.log('Эмодзя' + emoji)
       const emojiElement = `<div class="emoji-wrapper">
                               <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                             </div> `;
@@ -132,13 +130,14 @@ class EmojiPicker {
       if(!isDuplicate) {
         const recentEmojiSection = document.querySelector('.recent-emoji-section');
         if(recentEmojiSection.children.length == 25) {
-          const oldEmojiId = `emoji-wrapper-${localStorage.getItem('0')}`;
-          const oldEmojiElement = document.getElementById(oldEmojiId);
-          oldEmojiElement.remove();
-          // recentEmojiSection.removeChild(recentEmojiSection.children[0]);
           if(+localStorage.getItem('0') == 26) {
             localStorage.setItem('0', 1);
           }
+          const oldEmojiId = `emoji-wrapper-${localStorage.getItem('0')}`;
+          console.log(oldEmojiId);
+          const oldEmojiElement = document.getElementById(oldEmojiId);
+          oldEmojiElement.remove();
+          // recentEmojiSection.removeChild(recentEmojiSection.children[0]);
         }
   
         const emojiPosition = +localStorage.getItem('0');
@@ -269,7 +268,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker () {
-  console.log('int');
+  console.log('my boy');
   if(localStorage.length === 0) {
     localStorage.setItem('0', 1);
   }
