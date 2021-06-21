@@ -136,7 +136,7 @@ class EmojiBlock {
 
   render(objectOfEmojiElements) {
     let emojiSections = '';
-    for(sectionName in objectOfEmojiElements) {
+    for(let sectionName in objectOfEmojiElements) {
       const emojiSection = this.createEmojiSection(sectionName, objectOfEmojiElements[sectionName]);
       emojiSections += emojiSection;
     }
