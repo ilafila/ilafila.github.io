@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    scrollbar-width: 6px;
+    scrollbar-color: #DAE2EA;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 10px;
+    background: none; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DAE2EA;
+    border-radius: 3px;
+}
+
+#app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+.message-input {
+    width: 310px;
+    height: fit-content;
+    min-height: 36px;
+    max-height: 200px;
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 35px;
+    background: #FFFFFF;
+    border: 1px solid #C5D0DB;
+    border-radius: 4px;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: normal;
+    word-wrap: break-word;
+    outline:none;
+}
+
+.message-input br {
+    display: none;
+}
+
+.message-input:empty:before {
+    content: attr(data-placeholder);
+    color: #939393;
+}
