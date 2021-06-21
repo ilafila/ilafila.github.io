@@ -56,8 +56,8 @@ class EmojiNavbar {
 }
 
 class RecentEmojiBlock {
-  static getResentEmoji() {
-    let recentEmoji = '';
+  getResentEmojis() {
+    let recentEmojis = '';
     let arrOfKeys = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -72,20 +72,20 @@ class RecentEmojiBlock {
       const emojiElement = `<div id="emoji-wrapper-${key}" class="emoji-wrapper">
                               <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                             </div> `;
-      recentEmoji += emojiElement;
+      recentEmojis += emojiElement;
     }
-    return recentEmoji;
+    return recentEmojis;
   }
 
   render() {
-    const recentEmoji = RecentEmojiBlock.getResentEmoji();
+    const recentEmojis = this.getResentEmojis();
     return `<div class="emoji-table__recent-emoji-block hidden">
               <div class="emoji-block__emoji-section">
                 <div class="section-name-wrapper">
                   <p class="section-name-wrapper__section-name">Часто используемые</p>
                 </div>
                 <div class="recent-emoji-section">
-                  ${recentEmoji}
+                  ${recentEmojis}
                 </div>
               </div>
             </div>`;
@@ -232,7 +232,7 @@ class EmojiPicker {
     };
   }
 
-  async getEmoji() {
+  async getEmojis() {
     const request = new Request('./sections.json');
     const response = await fetch(request);
     if (response.ok) {
@@ -279,7 +279,7 @@ function createEmojiPicker() {
     localStorage.setItem('0', 1);
   }
   const emojiPicker = new EmojiPicker();
-  emojiPicker.getEmoji().then(() => {
+  emojiPicker.getEmojis().then(() => {
     const app = document.getElementById('app');
     app.insertAdjacentHTML('afterbegin', emojiPicker.render());
   })
