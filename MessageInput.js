@@ -247,7 +247,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('hokage');
+  console.log('9 tail');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
