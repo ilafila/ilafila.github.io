@@ -166,7 +166,6 @@ class EmojiPicker {
         }
         const oldEmojiId = `emoji-wrapper-${localStorage.getItem('0')}`;
         const oldEmojiElement = document.getElementById(oldEmojiId);
-        console.log(oldEmojiElement);
         oldEmojiElement.remove();
       }
 
