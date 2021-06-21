@@ -58,21 +58,25 @@ class EmojiNavbar {
 class RecentEmojiBlock {
   getResentEmojis() {
     let recentEmojis = '';
-    let arrOfKeys = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key != '0') {
-        arrOfKeys.push(+key);
-      }
-    }
-    const sortedArrOfKeys = arrOfKeys.sort(function (a, b) { return a - b });
-    for (let i = 0; i < sortedArrOfKeys.length; i++) {
-      const key = sortedArrOfKeys[i];
+    // let arrOfKeys = [];
+    const validKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+    '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'];
+    // for (let i = 0; i < localStorage.length; i++) {
+    //   const key = localStorage.key(i);
+    //   if (key != '0') {
+    //     arrOfKeys.push(+key);
+    //   }
+    // }
+    // const sortedArrOfKeys = arrOfKeys.sort(function (a, b) { return a - b });
+    for (let i = 0; i < validKeys.length; i++) {
+      const key = validKeys[i];
       const emoji = localStorage.getItem(key);
-      const emojiElement = `<div id="emoji-wrapper-${key}" class="emoji-wrapper">
-                              <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
-                            </div> `;
-      recentEmojis += emojiElement;
+      if(emoji != null) {
+        const emojiElement = `<div id="emoji-wrapper-${key}" class="emoji-wrapper">
+                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                              </div> `;
+        recentEmojis += emojiElement;
+      }
     }
     return recentEmojis;
   }
@@ -248,7 +252,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  if (localStorage.length === 0) {
+  if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
   const emojiPicker = new EmojiPicker();
