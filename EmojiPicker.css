@@ -35,11 +35,11 @@
     height: 20px;
 }
 
-.emoji-btn-input {
+.emoji-btn-show {
     background: url('./icons/Icon-input.svg');
 }
 
-.emoji-btn-input:hover {
+.emoji-btn-show:hover {
     background: url('./icons/Icon-input hover.svg');
 }
 

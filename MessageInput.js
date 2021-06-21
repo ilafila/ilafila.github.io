@@ -1,14 +1,19 @@
-class EmojiButton {
+class ShowEmojiButton {
+  static showEmoji() {
+    const emojiTable = document.querySelector('.emoji-table');
+    emojiTable.classList.toggle('hide');
+  }
+  
   render() {
-      return `<div class="emoji-btn-wrapper emoji-input-wrapper" role="button" onclick="EmojiPicker.showEmoji()">
-                <div class="emoji-btn emoji-btn-input"></div>
+      return `<div class="emoji-btn-wrapper emoji-input-wrapper" role="button" onclick="ShowEmojiButton.showEmoji()">
+                <div class="emoji-btn emoji-btn-show"></div>
               </div>`;
   }
 }
 
 class MessageInput {
   render() {
-      const emojiBtn = new EmojiButton();
+      const emojiBtn = new ShowEmojiButton();
       return `<div class="message-wrapper">
                 ${emojiBtn.render()}
                 <div class="message-input" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Ваше сообщение..."></div>
@@ -87,10 +92,99 @@ class RecentEmojiBlock {
   }
 }
 
+class EmojiBlock {
+  render(emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags) {
+    return `<div class="emoji-table__emoji-block">
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Эмоции</p>
+                </div>
+                <div class="emoji-section">
+                  ${emotions}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Жесты и люди</p>
+                </div>
+                <div class="emoji-section">
+                  ${gesturesAndPeople}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Символы</p>
+                </div>
+                <div class="emoji-section">
+                  ${symbols}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Животные и растения</p>
+                </div>
+                <div class="emoji-section">
+                  ${animalsAndPlants}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Еда и напитки</p>
+                </div>
+                <div class="emoji-section">
+                  ${foodAndDrink}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Спорт и активности</p>
+                </div>
+                <div class="emoji-section">
+                  ${sportsAndActivities}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Путешествия и транспорт</p>
+                </div>
+                <div class="emoji-section">
+                  ${travelAndTransport}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Предметы</p>
+                </div>
+                <div class="emoji-section">
+                  ${items}
+                </div>
+              </div>
+              <div class="emoji-block__emoji-section">
+                <div class="section-name-wrapper">
+                  <p class="section-name-wrapper__section-name">Флаги</p>
+                </div>
+                <div class="emoji-section">
+                  ${flags}
+                </div>
+              </div>
+            </div>`;
+  }
+}
+
 class EmojiPicker {
   constructor() {
-      this.sections;
-      this.objectOfEmojiElement;
+      this.emojiSections;
+      this.objectOfEmojiElements = {
+        emotions: '',
+        gesturesAndPeople: '',
+        symbols: '',
+        animalsAndPlants: '',
+        foodAndDrink: '',
+        sportsAndActivities: '',
+        travelAndTransport: '',
+        items: '',
+        flags: '',
+      };
   }
 
   async getEmoji() {
@@ -98,15 +192,10 @@ class EmojiPicker {
       const response = await fetch(request);
       if(response.ok){
           const res = await response.json();
-          this.sections = res;
+          this.emojiSections = res;
       } else {
           alert("Ошибка HTTP: " + response.status);
       }
-  }
-
-  static showEmoji() {
-      const emojiTable = document.querySelector('.emoji-table');
-      emojiTable.classList.toggle('hide');
   }
 
   static addEmoji(element) {
@@ -148,114 +237,30 @@ class EmojiPicker {
       }
   }
 
-  createEmoji() {
-      const objectOfEmojiElement = {
-          emotions: '',
-          gesturesAndPeople: '',
-          symbols: '',
-          animalsAndPlants: '',
-          foodAndDrink: '',
-          sportsAndActivities: '',
-          travelAndTransport: '',
-          items: '',
-          flags: '',
-      }
-
-      for (let section in this.sections) {
-          for (let emojiNumber in this.sections[section]) {
-              const emoji = this.sections[section][emojiNumber];
+  createEmojiElements() {
+      for (let section in this.emojiSections) {
+          for (let emojiNumber in this.emojiSections[section]) {
+              const emoji = this.emojiSections[section][emojiNumber];
               const emojiElement = `<div class="emoji-wrapper">
                                       <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
                                     </div> `;
-              objectOfEmojiElement[section] += emojiElement;
+              this.objectOfEmojiElements[section] += emojiElement;
           }
       }
-      this.objectOfEmojiElement = objectOfEmojiElement;
   }
 
   render() {
-      this.createEmoji();
-      const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElement;
+      this.createEmojiElements();
+      const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElements;
+      const recentEmojiBlock = new RecentEmojiBlock();
+      const emojiBlock = new emojiBlock();
       const messageInput = new MessageInput();
       const emojiNavbar = new EmojiNavbar();
-      const recentEmojiBlock = new RecentEmojiBlock();
-      return `<div>
+
+      return `<div class="emoji-picker">
                 <div class="emoji-table hide">
                   ${recentEmojiBlock.render()}
-                  <div class="emoji-table__emoji-block">
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Эмоции</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${emotions}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Жесты и люди</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${gesturesAndPeople}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Символы</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${symbols}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Животные и растения</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${animalsAndPlants}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Еда и напитки</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${foodAndDrink}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Спорт и активности</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${sportsAndActivities}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Путешествия и транспорт</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${travelAndTransport}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Предметы</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${items}
-                      </div>
-                    </div>
-                    <div class="emoji-block__emoji-section">
-                      <div class="section-name-wrapper">
-                        <p class="section-name-wrapper__section-name">Флаги</p>
-                      </div>
-                      <div class="emoji-section">
-                        ${flags}
-                      </div>
-                    </div>
-                  </div>
+                  ${emojiBlock.render(emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags)}
                   ${emojiNavbar.render()}
                 </div>
                 ${messageInput.render()}
