@@ -22,7 +22,7 @@ class MessageInput {
 }
 
 class EmojiNavbar {
-  static updateEmojiBlock(element) {
+  static updateEmojisBlocks(element) {
     const emojiBlock = document.querySelector('.emoji-table__emoji-block');
     const recentEmojiBlock = document.querySelector('.emoji-table__recent-emoji-block');
     const emojiOpenWrapper = document.querySelector('.emoji-open-wrapper');
@@ -45,10 +45,10 @@ class EmojiNavbar {
     return `<div class="emoji-table__emoji-navbar">
               <div class="emojis-buttons-wrapper">
                 <div class="emoji-btn-wrapper emoji-open-wrapper emoji-block-active">
-                  <div class="emoji-btn emoji-open-btn" role="button" data-status="open" onclick="EmojiNavbar.updateEmojiBlock(this)"></div>
+                  <div class="emoji-btn emoji-open-btn" role="button" data-status="open" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
                 </div>
                 <div class="emoji-btn-wrapper emoji-recent-wrapper">
-                  <div class="emoji-btn emoji-recent-btn" role="button" data-status="recent" onclick="EmojiNavbar.updateEmojiBlock(this)"></div>
+                  <div class="emoji-btn emoji-recent-btn" role="button" data-status="recent" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
                 </div>
               </div>
             </div>`;
@@ -172,7 +172,6 @@ class EmojiBlock {
 }
 
 class EmojiPicker {
-
   static updateRecentEmoji(emoji) {
     let isDuplicate = false;
     for (let i = 0; i < localStorage.length; i++) {
