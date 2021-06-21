@@ -58,16 +58,8 @@ class EmojiNavbar {
 class RecentEmojiBlock {
   getResentEmojis() {
     let recentEmojis = '';
-    // let arrOfKeys = [];
     const validKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
     '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'];
-    // for (let i = 0; i < localStorage.length; i++) {
-    //   const key = localStorage.key(i);
-    //   if (key != '0') {
-    //     arrOfKeys.push(+key);
-    //   }
-    // }
-    // const sortedArrOfKeys = arrOfKeys.sort(function (a, b) { return a - b });
     for (let i = 0; i < validKeys.length; i++) {
       const key = validKeys[i];
       const emoji = localStorage.getItem(key);
@@ -162,15 +154,6 @@ class EmojiPicker {
       }
     }
 
-    // for (let i = 0; i < localStorage.length; i++) {
-    //   const key = localStorage.key(i);
-    //   if (key != '0') {
-    //     if (emoji === localStorage.getItem(key)) {
-    //       isDuplicate = true;
-    //     }
-    //   }
-    // }
-
     if (!isDuplicate) {
       const recentEmojiSection = document.querySelector('.recent-emoji-section');
       if (recentEmojiSection.children.length == 25) {
@@ -262,10 +245,8 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('test');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
-    console.log('reset');
   }
   const emojiPicker = new EmojiPicker();
   emojiPicker.getEmojis().then(() => {
