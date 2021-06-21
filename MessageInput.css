@@ -7,7 +7,7 @@
 }
 
 body::-webkit-scrollbar {
-    width: 0.375em;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track { 
@@ -16,9 +16,13 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #DAE2EA;
+    background: none;
     outline: none;
     border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: #DAE2EA; 
 }
 
 #app {

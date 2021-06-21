@@ -245,6 +245,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
+  console.log('chee');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
