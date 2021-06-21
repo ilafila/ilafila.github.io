@@ -257,7 +257,6 @@ function createEmojiPicker() {
 
 function openEmojiBlock(e) {
   const keyCode = e.keyCode;
-  console.log(keyCode);
   const shift = 16;
   if (keyCode === shift) {
     ShowEmojiButton.showEmoji();
