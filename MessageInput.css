@@ -6,23 +6,17 @@
     font-weight: normal;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 6px;
 }
 
-::-webkit-scrollbar-track { 
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+::-webkit-scrollbar-track {
+    background: none; 
 }
 
-body::-webkit-scrollbar-thumb {
-    background: none;
-    outline: none;
+::-webkit-scrollbar-thumb {
+    background: #DAE2EA;
     border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-	background: #DAE2EA; 
 }
 
 #app {
