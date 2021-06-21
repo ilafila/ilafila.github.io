@@ -253,7 +253,7 @@ class EmojiPicker {
       this.createEmojiElements();
       const {emotions, gesturesAndPeople, symbols, animalsAndPlants, foodAndDrink, sportsAndActivities, travelAndTransport, items, flags} = this.objectOfEmojiElements;
       const recentEmojiBlock = new RecentEmojiBlock();
-      const emojiBlock = new emojiBlock();
+      const emojiBlock = new EmojiBlock();
       const messageInput = new MessageInput();
       const emojiNavbar = new EmojiNavbar();
 
@@ -281,7 +281,8 @@ function createEmojiPicker () {
 
 function openEmojiBlock(e) {
   const keyCode = e.keyCode;
-  if(keyCode === 9) {
+  const tab = 9;
+  if(keyCode === tab) {
     EmojiPicker.showEmoji();
   }
 }
