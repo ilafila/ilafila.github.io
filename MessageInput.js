@@ -30,6 +30,7 @@ class EmojiNavbar {
     const status = element.dataset.status;
     if (status === 'open') {
       emojiOpenWrapper.classList.add('emoji-block-active');
+      emojiOpenWrapper.classList.remove('emoji-block-passive');
       emojiRecentWrapper.classList.remove('emoji-block-active');
       emojiRecentWrapper.classList.add('emoji-block-passive');
       emojiBlock.classList.remove('hidden');
@@ -38,6 +39,7 @@ class EmojiNavbar {
       emojiOpenWrapper.classList.remove('emoji-block-active');
       emojiOpenWrapper.classList.add('emoji-block-passive');
       emojiRecentWrapper.classList.add('emoji-block-active');
+      emojiRecentWrapper.classList.remove('emoji-block-passive');
       emojiBlock.classList.add('hidden');
       recentEmojiBlock.classList.remove('hidden');
     }
@@ -49,7 +51,7 @@ class EmojiNavbar {
                 <div class="emoji-btn-wrapper emoji-open-wrapper emoji-block-active">
                   <div class="emoji-btn emoji-open-btn" role="button" data-status="open" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
                 </div>
-                <div class="emoji-btn-wrapper emoji-recent-wrapper">
+                <div class="emoji-btn-wrapper emoji-recent-wrapper emoji-block-passive">
                   <div class="emoji-btn emoji-recent-btn" role="button" data-status="recent" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
                 </div>
               </div>
@@ -247,7 +249,6 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('kurama');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
