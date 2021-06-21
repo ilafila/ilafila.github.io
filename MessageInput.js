@@ -257,6 +257,7 @@ function createEmojiPicker() {
 
 function openEmojiBlock(e) {
   const keyCode = e.keyCode;
+  console.log(keyCode);
   const tab = 9;
   if (keyCode === tab) {
     ShowEmojiButton.showEmoji();
