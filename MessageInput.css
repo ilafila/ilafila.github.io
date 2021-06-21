@@ -8,11 +8,10 @@
 
 ::-webkit-scrollbar {
     width: 6px;
-    height: 170px;
-    margin-top: 50px;
 }
 
 ::-webkit-scrollbar-track {
+    margin-top: 10px;
     background: none; 
 }
 

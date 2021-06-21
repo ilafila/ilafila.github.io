@@ -247,7 +247,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('9 tail');
+  console.log('kurama');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
