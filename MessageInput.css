@@ -30,15 +30,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .message-wrapper {
-    width: 20.833vw;
+    width: 300px;
     position: relative;
 }
 
 .message-input {
-    width: 21.528vw;
+    width: 310px;
     height: fit-content;
-    min-height: 5.9504vh;
-    max-height: 33.057vh;
+    min-height: 36px;
+    max-height: 200px;
     overflow-y: scroll;
     padding-left: 10px;
     padding-top: 10px;
