@@ -38,6 +38,7 @@
     line-height: 21px;
     font-weight: normal;
     word-wrap: break-word;
+    outline:none;
 }
 
 .message-input br {

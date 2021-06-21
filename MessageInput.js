@@ -60,9 +60,7 @@ class RecentEmojiBlock {
         arrOfKeys.push(+key);
       }
     }
-    console.log(arrOfKeys);
     const sortedArrOfKeys = arrOfKeys.sort(function(a, b){return a-b});
-    console.log(sortedArrOfKeys);
     for(let i = 0; i < sortedArrOfKeys.length; i++){
       const key = sortedArrOfKeys[i];
       const emoji = localStorage.getItem(key);
@@ -134,10 +132,8 @@ class EmojiPicker {
             localStorage.setItem('0', 1);
           }
           const oldEmojiId = `emoji-wrapper-${localStorage.getItem('0')}`;
-          console.log(oldEmojiId);
           const oldEmojiElement = document.getElementById(oldEmojiId);
           oldEmojiElement.remove();
-          // recentEmojiSection.removeChild(recentEmojiSection.children[0]);
         }
   
         const emojiPosition = +localStorage.getItem('0');
@@ -146,7 +142,7 @@ class EmojiPicker {
         localStorage.setItem('0', emojiNewPosition);
   
         const emojiElement = `<div id="emoji-wrapper-${emojiPosition}" class="emoji-wrapper">
-                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji}</span>
+                                <span class="emoji-icon" onclick="EmojiPicker.addEmoji(this)" data-emoji="${emoji}">${emoji} </span>
                               </div> `;
         recentEmojiSection.insertAdjacentHTML('beforeend', emojiElement);
       }
@@ -282,7 +278,6 @@ function openEmojiBlock(e) {
   const keyCode = e.keyCode;
   if(keyCode === 9) {
     EmojiPicker.showEmoji();
-    console.log('yee');
   }
 }
 
