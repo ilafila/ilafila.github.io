@@ -247,7 +247,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('naruto uzumaki');
+  console.log('hokage');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
