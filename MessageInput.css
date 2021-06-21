@@ -4,6 +4,8 @@
     box-sizing: border-box;
     font-style: normal;
     font-weight: normal;
+    scrollbar-width: 6px;
+    scrollbar-color: #DAE2EA;
 }
 
 ::-webkit-scrollbar {
@@ -18,6 +20,12 @@
 ::-webkit-scrollbar-thumb {
     background: #DAE2EA;
     border-radius: 3px;
+}
+
+.message-input ::-webkit-scrollbar-track {
+    margin-top: 15px;
+    margin-right: 5px;
+    background: none; 
 }
 
 #app {
