@@ -25,19 +25,19 @@ class EmojiNavbar {
   static updateEmojisBlocks(element) {
     const emojiBlock = document.querySelector('.emoji-table__emoji-block');
     const recentEmojiBlock = document.querySelector('.emoji-table__recent-emoji-block');
-    const emojiOpenWrapper = document.querySelector('.emoji-open-wrapper');
+    const emojiListWrapper = document.querySelector('.emoji-list-wrapper');
     const emojiRecentWrapper = document.querySelector('.emoji-recent-wrapper');
     const status = element.dataset.status;
     if (status === 'open') {
-      emojiOpenWrapper.classList.add('emoji-block-active');
-      emojiOpenWrapper.classList.remove('emoji-block-passive');
+      emojiListWrapper.classList.add('emoji-block-active');
+      emojiListWrapper.classList.remove('emoji-block-passive');
       emojiRecentWrapper.classList.remove('emoji-block-active');
       emojiRecentWrapper.classList.add('emoji-block-passive');
       emojiBlock.classList.remove('hidden');
       recentEmojiBlock.classList.add('hidden');
     } else {
-      emojiOpenWrapper.classList.remove('emoji-block-active');
-      emojiOpenWrapper.classList.add('emoji-block-passive');
+      emojiListWrapper.classList.remove('emoji-block-active');
+      emojiListWrapper.classList.add('emoji-block-passive');
       emojiRecentWrapper.classList.add('emoji-block-active');
       emojiRecentWrapper.classList.remove('emoji-block-passive');
       emojiBlock.classList.add('hidden');
@@ -48,8 +48,8 @@ class EmojiNavbar {
   render() {
     return `<div class="emoji-table__emoji-navbar">
               <div class="emojis-buttons-wrapper">
-                <div class="emoji-btn-wrapper emoji-open-wrapper emoji-block-active">
-                  <div class="emoji-btn emoji-open-btn" role="button" data-status="open" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
+                <div class="emoji-btn-wrapper emoji-list-wrapper emoji-block-active">
+                  <div class="emoji-btn emoji-list-btn" role="button" data-status="open" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
                 </div>
                 <div class="emoji-btn-wrapper emoji-recent-wrapper emoji-block-passive">
                   <div class="emoji-btn emoji-recent-btn" role="button" data-status="recent" onclick="EmojiNavbar.updateEmojisBlocks(this)"></div>
@@ -249,7 +249,6 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('game');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
