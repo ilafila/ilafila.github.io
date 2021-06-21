@@ -21,6 +21,10 @@
     background: #FFFFFF;
 }
 
+.emoji-block-passive:hover {
+    background: #DAE2EA;
+}
+
 .emoji-recent-wrapper {
     width: 36px;
     height: 36px;

@@ -31,10 +31,12 @@ class EmojiNavbar {
     if (status === 'open') {
       emojiOpenWrapper.classList.add('emoji-block-active');
       emojiRecentWrapper.classList.remove('emoji-block-active');
+      emojiRecentWrapper.classList.add('emoji-block-passive');
       emojiBlock.classList.remove('hidden');
       recentEmojiBlock.classList.add('hidden');
     } else {
       emojiOpenWrapper.classList.remove('emoji-block-active');
+      emojiOpenWrapper.classList.add('emoji-block-passive');
       emojiRecentWrapper.classList.add('emoji-block-active');
       emojiBlock.classList.add('hidden');
       recentEmojiBlock.classList.remove('hidden');
@@ -245,7 +247,7 @@ class EmojiPicker {
 }
 
 function createEmojiPicker() {
-  console.log('man');
+  console.log('naruto');
   if (localStorage.getItem('0') == null) {
     localStorage.setItem('0', 1);
   }
