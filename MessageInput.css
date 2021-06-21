@@ -6,6 +6,21 @@
     font-weight: normal;
 }
 
+body::-webkit-scrollbar {
+    width: 0.375em;
+}
+
+::-webkit-scrollbar-track { 
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #DAE2EA;
+    outline: none;
+    border-radius: 3px;
+}
+
 #app {
     display: flex;
     width: 100vw;
@@ -20,7 +35,6 @@
 }
 
 .message-input {
-    /* position: relative; */
     width: 310px;
     height: fit-content;
     min-height: 36px;
