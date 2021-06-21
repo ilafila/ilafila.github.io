@@ -289,7 +289,7 @@ function openEmojiBlock(e) {
   const keyCode = e.keyCode;
   const tab = 9;
   if (keyCode === tab) {
-    EmojiPicker.showEmoji();
+    ShowEmojiButton.showEmoji();
   }
 }
 
